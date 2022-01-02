@@ -1,0 +1,65 @@
+\hypertarget{randomizer_8c}{}\doxysection{/home/jv/\+Coding/bic\+\_\+lottery/src/randomizer.c File Reference}
+\label{randomizer_8c}\index{/home/jv/Coding/bic\_lottery/src/randomizer.c@{/home/jv/Coding/bic\_lottery/src/randomizer.c}}
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for randomizer.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{randomizer_8c_a920e1c1c9ac8e98ff4d9eb882d6e8f1b}{randomizer}} (int $\ast$$\ast$tipps, int total\+\_\+tipps, int XX, int YY)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Randomizer() generates unique numbers for tipps 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \textcolor{keywordtype}{void} \mbox{\hyperlink{randomizer_8c_a920e1c1c9ac8e98ff4d9eb882d6e8f1b}{randomizer}}(\textcolor{keywordtype}{int} **tipps, \textcolor{keywordtype}{int} total\_tipps, \textcolor{keywordtype}{int} XX, \textcolor{keywordtype}{int} YY)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    srand(time(NULL));    }
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < total\_tipps; i++)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < XX;)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{            \textcolor{keywordtype}{int} x, rand\_num = rand()\%YY + 1;}
+\DoxyCodeLine{}
+\DoxyCodeLine{            \textcolor{keywordflow}{for}(x = 0; x < j; x++)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(*(tipps[i] + x)==rand\_num)\textcolor{keywordflow}{break};}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(x==j)*(tipps[i] + j++) = rand\_num;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{randomizer_8c_a920e1c1c9ac8e98ff4d9eb882d6e8f1b}\label{randomizer_8c_a920e1c1c9ac8e98ff4d9eb882d6e8f1b}} 
+\index{randomizer.c@{randomizer.c}!randomizer@{randomizer}}
+\index{randomizer@{randomizer}!randomizer.c@{randomizer.c}}
+\doxysubsubsection{\texorpdfstring{randomizer()}{randomizer()}}
+{\footnotesize\ttfamily void randomizer (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{tipps,  }\item[{int}]{total\+\_\+tipps,  }\item[{int}]{XX,  }\item[{int}]{YY }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tipps} & holds elements of randomized tipp numbers \\
+\hline
+\mbox{\texttt{ in}}  & {\em total\+\_\+tipps} & total tipps to be generated \\
+\hline
+\mbox{\texttt{ in}}  & {\em XX} & Total numbers of per tipp \\
+\hline
+\mbox{\texttt{ in}}  & {\em YY} & Max Value of tipp numbers \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyEnumerate}
+\item Plant Rand using current time
+\item Increment through total tipps
+\item Increment though individual element of tipp
+\item Generate Random number
+\item Check for previous matching number
+\item if no matches found, then assign new Randomnumber to tipp element
+\end{DoxyEnumerate}
